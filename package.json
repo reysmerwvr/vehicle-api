@@ -1,0 +1,23 @@
+{
+  "name": "vehicle-api",
+  "version": "1.0.0",
+  "description": "Vehicle API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "restify",
+    "restify-app"
+  ],
+  "author": "Reysmer Valle",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.6.4",
+    "mongoose-string-query": "^0.2.7",
+    "mongoose-timestamp": "^0.6.0",
+    "restify": "^8.3.3",
+    "restify-errors": "^8.0.0",
+    "restify-plugins": "^1.6.0"
+  }
+}
