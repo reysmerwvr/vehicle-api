@@ -28,7 +28,7 @@ server.use(restifyPlugins.fullResponse());
 server.listen(config.port, () => {
 	// establish connection to mongodb
 	mongoose.Promise = global.Promise;
-	mongoose.connect(config.db.uri, { useMongoClient: true });
+	mongoose.connect(config.db.uri, { useNewUrlParser: true });
 
 	const db = mongoose.connection;
 
