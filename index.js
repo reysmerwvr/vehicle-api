@@ -37,6 +37,10 @@ server.listen(config.port, () => {
 	    process.exit(1);
 	});
 
+	server.get('/apidocs/*',
+     	restify.plugins.serveStaticFiles('./apidocs')
+	);
+
 	db.once('open', () => {
 	    require('./routes')(server);
 	    console.log(`Server is listening on port ${config.port}`);

@@ -8,6 +8,13 @@
     "seeds": "node seeds.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "apidoc": {
+    "name": "Vehicle API",
+    "version": "1.0.0",
+    "description": "Vehicle API Documentation",
+    "title": "API Documentation of Vehicle App",
+    "url" : "https://localhost::3000"
+  },
   "keywords": [
     "restify",
     "restify-app"
