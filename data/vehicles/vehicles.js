@@ -12,4 +12,4 @@ module.exports = names.map(name => ({
     motorPark: parks[Math.floor(Math.random() * parks.length)],
     createdAt: Date.now().toString(),
     updatedAt: Date.now().toString(),
-}))
+}));

@@ -2,6 +2,7 @@
  * Module Dependencies
  */
 const errors = require('restify-errors');
+const general = require('../helpers/general');
 
 /**
  * Model Schema
@@ -19,9 +20,7 @@ module.exports = function(server) {
 				new errors.InvalidContentError("Expects 'application/json'"),
 			);
 		}
-
 		let data = req.body || {};
-
 		let vehicle = new Vehicle(data);
 		vehicle.save(function(err) {
 			if (err) {
@@ -29,8 +28,8 @@ module.exports = function(server) {
 				return next(new errors.InternalError(err.message));
 				next();
 			}
-
-			res.send(201);
+			res.header('content-type', 'json');
+			res.send(201, general.responseJsonSuccess(vehicle));
 			next();
 		});
 	});
@@ -46,8 +45,8 @@ module.exports = function(server) {
 					new errors.InvalidContentError(err.errors.name.message),
 				);
 			}
-
-			res.send(docs);
+			res.header('content-type', 'json');
+			res.send(200, general.responseJsonSuccess(docs));
 			next();
 		});
 	});
@@ -63,8 +62,8 @@ module.exports = function(server) {
 					new errors.InvalidContentError(err.errors.name.message),
 				);
 			}
-
-			res.send(doc);
+			res.header('content-type', 'json');
+			res.send(200, general.responseJsonSuccess(doc));
 			next();
 		});
 	});
@@ -78,13 +77,10 @@ module.exports = function(server) {
 				new errors.InvalidContentError("Expects 'application/json'"),
 			);
 		}
-
 		let data = req.body || {};
-
 		if (!data._id) {
 			data = Object.assign({}, data, { _id: req.params.vehicle_id });
 		}
-
 		Vehicle.findOne({ _id: req.params.vehicle_id }, function(err, doc) {
 			if (err) {
 				console.error(err);
@@ -98,7 +94,6 @@ module.exports = function(server) {
 					),
 				);
 			}
-
 			Vehicle.update({ _id: data._id }, data, function(err) {
 				if (err) {
 					console.error(err);
@@ -106,8 +101,8 @@ module.exports = function(server) {
 						new errors.InvalidContentError(err.errors.name.message),
 					);
 				}
-
-				res.send(200, data);
+				res.header('content-type', 'json');
+				res.send(200, general.responseJsonSuccess(data));
 				next();
 			});
 		});
@@ -124,8 +119,8 @@ module.exports = function(server) {
 					new errors.InvalidContentError(err.errors.name.message),
 				);
 			}
-
-			res.send(204);
+			res.header('content-type', 'json');
+			res.send(204, general.responseJsonSuccess({}));
 			next();
 		});
 	});
