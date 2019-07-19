@@ -5,6 +5,16 @@ const config = require('./config');
 const restify = require('restify');
 const mongoose = require('mongoose');
 const restifyPlugins = require('restify-plugins');
+const corsMiddleware = require('restify-cors-middleware');
+
+/**
+  * Create Cors
+*/
+const cors = corsMiddleware({  
+    origins: ["*"],
+    allowHeaders: ["Authorization"],
+    exposeHeaders: ["Authorization"]
+});
 
 /**
   * Initialize Server
@@ -21,6 +31,8 @@ server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
 server.use(restifyPlugins.acceptParser(server.acceptable));
 server.use(restifyPlugins.queryParser({ mapParams: true }));
 server.use(restifyPlugins.fullResponse());
+server.pre(cors.preflight);  
+server.use(cors.actual);  
 
 /**
   * Start Server, Connect to DB & Require Routes

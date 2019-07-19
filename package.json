@@ -13,7 +13,7 @@
     "version": "1.0.0",
     "description": "Vehicle API Documentation",
     "title": "API Documentation of Vehicle App",
-    "url" : "https://localhost::3000"
+    "url": "https://localhost::3000"
   },
   "keywords": [
     "restify",
@@ -27,6 +27,7 @@
     "mongoose-string-query": "^0.2.7",
     "mongoose-timestamp": "^0.6.0",
     "restify": "^8.3.3",
+    "restify-cors-middleware": "^1.1.1",
     "restify-errors": "^8.0.0",
     "restify-plugins": "^1.6.0"
   }
