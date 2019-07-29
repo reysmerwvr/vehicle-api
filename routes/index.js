@@ -1,7 +1,6 @@
 /**
  * Module Dependencies
  */
-const res = require('../config');
 const errors = require('restify-errors');
 const general = require('../helpers/general');
 
