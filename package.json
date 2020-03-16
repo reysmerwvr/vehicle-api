@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "mongo-seeding": "^3.3.0-alpha.0",
-    "mongoose": "^5.6.4",
+    "mongoose": "^5.7.5",
     "mongoose-string-query": "^0.2.7",
     "mongoose-timestamp": "^0.6.0",
     "restify": "^8.3.3",
